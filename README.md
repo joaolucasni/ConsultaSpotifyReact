@@ -7,7 +7,7 @@ npm add react-datepicker
 npm install react-router-dom
 npm install bootstrap react-bootstrap
 
-##Inicialização
+Inicialização
 
 Para iniciar o projeto, abra a pasta do projeto em um console e execute o seguinte comando:
 npm start
