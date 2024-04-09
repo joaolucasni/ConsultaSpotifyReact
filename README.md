@@ -3,9 +3,7 @@ Esse repositório contem um projeto em React, que possui o objetivo de pesquisar
 Antes de iniciar o projeto, é necessário ter instalado em sua máquina o Node.js. Em seguida serão necessários alguns passos:
 
 Instalar as dependencias do projeto através dos comandos:
-npm add react-datepicker
-npm install react-router-dom
-npm install bootstrap react-bootstrap
+npm install react-datepicker react-router-dom bootstrap react-bootstrap firebase
 
 Inicialização
 
