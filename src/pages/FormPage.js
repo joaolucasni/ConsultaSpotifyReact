@@ -1,46 +1,31 @@
 import React, { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "../App.css";
+import "../styles/App.css";
+import "../styles/Login.css";
+import "../services/connectionFirebase"
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.module.css";
-import {
-  Container,
-  InputGroup,
-  FormControl,
-  Button,
-  Row,
-  Card,
-} from "react-bootstrap";
 
 function FormPage() {
   // Definindo os estados para os campos do formulário
   const {artistName} = useParams();
-  const [nome, setNome] = useState("");
+  const [nome, setNome, getNome] = useState("");
   const [artista, setArtista] = useState(artistName);
   const [endereco, setEndereco] = useState("");
   const [date, setDate] = useState("");
   const [cache, setCache] = useState("");
   
-
+ 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Aqui você pode fazer algo com os dados do formulário, como enviar para um servidor ou exibir em um alerta
-    console.log("Nome:", nome);
-    console.log("Artista:", artista);
-    console.log("Endereco:", endereco);
-    console.log("Cachê:", cache);
-    console.log("Date:", date);
-    // Limpando os campos após o envio
-    setNome("");
-    setArtista("");
-    setEndereco("");
-    setDate("");
-    setCache("");
   };
 
+  
+
   return (
-    <div className="container mt-5">
+    <div className="Body">
+      <div className="wrapper">
       <form onSubmit={handleSubmit}>
         <div className="mb-1">
           <label htmlFor="nome" className="form-label">
@@ -86,7 +71,7 @@ function FormPage() {
             Data:
           </label>
           <br />
-          <DatePicker selected={date} onChange={(date) => setDate(date)} />
+          <DatePicker className="form-control" selected={date} onChange={(date) => setDate(date)} />
         </div>
         <div className="mb-1">
           <label htmlFor="endereco" className="form-label">
@@ -101,13 +86,15 @@ function FormPage() {
             required
           />
         </div>
-        <button type="submit" className="btn btn-primary">
+        <button style={{width: "95%"}} type="submit" className="button">
           Enviar
         </button>
-        <Link to="/">
-          <button>Voltar para a Página Inicial</button>
+        <br/>
+        <Link className="link" to="/">
+          Voltar para a Página Inicial
         </Link>
       </form>
+      </div>
     </div>
   );
 }

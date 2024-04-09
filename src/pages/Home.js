@@ -1,11 +1,12 @@
 //Importação dos componentes, bibliotecas e páginas que são necessárias para o funcionamento do projeto
 //Importação da biblioteca do bootstrap.min.css
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '../App.css';
+import '../styles/App.css';
 import {Container, InputGroup, FormControl, Button, Row, Card} from 'react-bootstrap';
 import {useState, useEffect} from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom'; 
-import FormPage from './FormPage'
+import FormPage from './FormPage';
+import Login from './Login';
 
 
 
@@ -61,6 +62,7 @@ function Home() {
       <div className="App">
         {/*Criando um container com o input de texto e um botão para efetuar a pesquisa*/}
          <Container className='Nav'>
+          <Link to={"/login"}>Retornar à tela de Login</Link>
           <InputGroup className="mb-3" size="lg">
             <FormControl
               placeholder="Search for Artist"
@@ -112,6 +114,7 @@ function Home() {
          </Container>
          <Routes>
             <Route path="/form/:artistName" element={<FormPage />} />
+            <Route path="/login" element={<Login />} />
         </Routes>
       </div>
       </div>
