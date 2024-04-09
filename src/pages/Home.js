@@ -103,7 +103,7 @@ function Home() {
                   ) : (
                     <Card.Img src={"error.png"} />
                   )}
-                  <Card.Title><Link className='Link' to="/form">{artist.name}</Link></Card.Title>
+                  <Card.Title><Link className='Link' to={`/form/${artist.name}`}>{artist.name}</Link></Card.Title>
                 </Card.Body>
               </Card>
               )
@@ -111,7 +111,7 @@ function Home() {
           </Row>        
          </Container>
          <Routes>
-            <Route path="/form" element={<FormPage />} />
+            <Route path="/form/:artistName" element={<FormPage />} />
         </Routes>
       </div>
       </div>

@@ -15,7 +15,7 @@ function App() {
       <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/form" element={<FormPage />} />
+        <Route path="/form/:artistName" element={<FormPage />} />
       </Routes>
       </BrowserRouter>
     </div>
