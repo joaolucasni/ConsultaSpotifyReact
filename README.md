@@ -5,7 +5,11 @@ Antes de iniciar o projeto, é necessário ter instalado em sua máquina o Node.
 ### Instalação
 
 Instalar as dependencias do projeto através dos comandos:
-npm install react-datepicker react-router-dom bootstrap react-bootstrap firebase
+npm install react-datepicker 
+npm install react-router-dom
+npm install bootstrap 
+npm install react-bootstrap
+npm install firebase
 
 ### Inicialização
 
