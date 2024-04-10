@@ -15,7 +15,7 @@ function App() {
     <div>
       <BrowserRouter>
       <Routes>
-      <Route path="/login" element={<Login />} />
+      <Route index path="/login" element={<Login />} />
         <Route path="/" element={<Home />} />
         <Route path="/form/:artistName" element={<FormPage />} />
       </Routes>
