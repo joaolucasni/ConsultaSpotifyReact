@@ -6,16 +6,15 @@ import { getAnalytics } from "firebase/analytics";
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyDE-6Oyz_3WenKrQif0nUoRhq0OgISt5oo",
-  authDomain: "projetoapim-11af0.firebaseapp.com",
-  databaseURL: "https://projetoapim-11af0-default-rtdb.firebaseio.com",
-  projectId: "projetoapim-11af0",
-  storageBucket: "projetoapim-11af0.appspot.com",
-  messagingSenderId: "737058591684",
-  appId: "1:737058591684:web:85b79e46c667ec6b96ca91",
-  measurementId: "G-SBMJJBMHX7"
+  apiKey: "AIzaSyAABoS1f-nkKyWO1GOE7jVb5YLfGIx9Uhc",
+  authDomain: "projetoapispotify-37b8e.firebaseapp.com",
+  databaseURL: "https://projetoapispotify-37b8e-default-rtdb.firebaseio.com",
+  projectId: "projetoapispotify-37b8e",
+  storageBucket: "projetoapispotify-37b8e.appspot.com",
+  messagingSenderId: "786253225234",
+  appId: "1:786253225234:web:9b408fb5e788b1cb5d27cb",
+  measurementId: "G-1JXTDFN5BD"
 };
 
 // Initialize Firebase
@@ -23,3 +22,4 @@ const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 
 export const auth = getAuth(app);
+export default app;

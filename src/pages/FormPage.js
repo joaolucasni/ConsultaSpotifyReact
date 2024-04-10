@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "../styles/App.css";
-import "../styles/Login.css";
-import "../services/connectionFirebase"
+import "../styles/Form.css";
+import app from "../services/connectionFirebase"
+import { getDatabase, ref, set, push} from "firebase/database";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.module.css";
 
 function FormPage() {
-  // Definindo os estados para os campos do formulário
+  // Setting states for form fields
   const {artistName} = useParams();
   const [nome, setNome, getNome] = useState("");
   const [artista, setArtista] = useState(artistName);
@@ -16,20 +16,33 @@ function FormPage() {
   const [date, setDate] = useState("");
   const [cache, setCache] = useState("");
   
- 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-  };
-
-  
+ // Sending data to database in Firebase
+  const saveData = async() => {
+    // Defining the database
+    const db = getDatabase(app);
+    // Generating data reference
+    const newDocRef = push(ref(db));
+    // Inserting the bank fields and assigning the information
+    set(newDocRef, {
+      Nome : nome,
+      Artista : artista,
+      Endereco : endereco,
+      Data : date,
+      Cache : cache
+    }).then( () => {
+      alert("Data saved successfully")
+    }).catch((error) => {
+      alert("error: ", error.message);
+    })
+  }
 
   return (
+    // Generating form fields
     <div className="Body">
       <div className="wrapper">
-      <form onSubmit={handleSubmit}>
         <div className="mb-1">
           <label htmlFor="nome" className="form-label">
-            Nome:
+           * Nome:
           </label>
           <input
             type="text"
@@ -42,7 +55,7 @@ function FormPage() {
         </div>
         <div className="mb-1">
           <label htmlFor="artista" className="form-label">
-            Artista:
+           * Artista:
           </label>
           <input
             type="text"
@@ -55,7 +68,7 @@ function FormPage() {
         </div>
         <div className="mb-1">
           <label htmlFor="cache" className="form-label">
-            Cachê:
+           Cachê:
           </label>
           <input
             type="text"
@@ -63,12 +76,11 @@ function FormPage() {
             id="cache"
             value={cache}
             onChange={(event) => setCache(event.target.value)}
-            required
           />
         </div>
         <div className="mb-1">
           <label htmlFor="date" className="form-label">
-            Data:
+           * Data:
           </label>
           <br />
           <DatePicker className="form-control" selected={date} onChange={(date) => setDate(date)} />
@@ -83,17 +95,17 @@ function FormPage() {
             id="endereco"
             value={endereco}
             onChange={(event) => setEndereco(event.target.value)}
-            required
           />
         </div>
-        <button style={{width: "95%"}} type="submit" className="button">
+        {/*Button with action to send data to the bank*/}
+        <button style={{width: "95%"}} type="submit" className="button" onClick={saveData}>
           Enviar
         </button>
         <br/>
+        {/*Setting route back to home page*/}
         <Link className="link" to="/">
           Voltar para a Página Inicial
         </Link>
-      </form>
       </div>
     </div>
   );

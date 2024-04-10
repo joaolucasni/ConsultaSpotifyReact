@@ -9,3 +9,8 @@ Inicialização
 
 Para iniciar o projeto, abra a pasta do projeto em um console e execute o seguinte comando:
 npm start
+
+email Firebase: projetoapi.spotify@gmail.com
+senha: 123456Aa-
+spotify projetoAPi
+senha: 12345678Aa-
